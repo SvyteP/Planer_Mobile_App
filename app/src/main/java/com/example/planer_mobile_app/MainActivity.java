@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mRefDB = FirebaseDatabase.getInstance().getReference();//Запись адреза БД
+        mRefDB = FirebaseDatabase.getInstance().getReference();//Запись адреcа БД
     }
 
     public void toRegistration(View reg){
