@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "23547123398",
+
     "firebase_url": "https://mobileplanerapp-default-rtdb.firebaseio.com",
+
     "project_id": "mobileplanerapp",
     "storage_bucket": "mobileplanerapp.appspot.com"
   },
