@@ -26,13 +26,15 @@
         </activity>
         <activity
             android:name=".Listactivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
+
 
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
+        <activity android:name=".Add_note"
+            android:exported="true"/>
     </application>
 
 </manifest>

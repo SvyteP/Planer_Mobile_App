@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/bg"
     tools:context=".Listactivity">
 
@@ -18,8 +18,8 @@
             android:layout_width="80sp"
             android:layout_height="80sp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="0sp"
-            android:layout_marginEnd="43dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="42dp"
             android:layout_toStartOf="@+id/btn_activity"
             android:clickable="true"
             android:contentDescription="friends"
@@ -33,7 +33,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="0dp"
-            android:layout_marginEnd="43dp"
+            android:layout_marginEnd="42dp"
             android:clickable="true"
             android:contentDescription="setting"
             android:onClick="toSetting"
@@ -49,6 +49,12 @@
             android:contentDescription="Activity"
             android:onClick="toActivity"
             app:srcCompat="@drawable/icon_activity" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
     </RelativeLayout>
 
     <RelativeLayout
@@ -66,18 +72,23 @@
             android:textColor="@color/black" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnAddNote"
             android:layout_width="50dp"
             android:layout_height="40dp"
             android:layout_marginStart="350dp"
+            android:clickable="true"
+            android:contentDescription="Notes"
+            android:onClick="AddNote"
             android:text="+"
             tools:ignore="DuplicateIds" />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_below="@+id/upper_bg"
+        android:layout_marginTop="0dp"
         android:background="#673AB7"
         android:backgroundTint="#00BCD4"
         android:text="Полная задача"
@@ -128,6 +139,24 @@
             android:text="удалить"
             android:textSize="3sp" />
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="62dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
 </RelativeLayout>
