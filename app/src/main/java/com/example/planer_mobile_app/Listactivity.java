@@ -23,8 +23,8 @@ public class Listactivity extends AppCompatActivity {
         startActivity(toReg);
     }
 
-    /*public void toFriends(View reg){
-        Intent toReg = new Intent(Listactivity.this, Registration.class);
+    public void toFriends(View reg){
+        Intent toReg = new Intent(Listactivity.this, friendlist.class);
         startActivity(toReg);
-    }*/
+    }
 }
