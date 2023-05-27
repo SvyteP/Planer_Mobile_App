@@ -35,6 +35,9 @@
         </activity>
         <activity android:name=".Add_note"
             android:exported="true"/>
+
+        <activity android:name=".Del_note"
+            android:exported="true"/>
     </application>
 
 </manifest>

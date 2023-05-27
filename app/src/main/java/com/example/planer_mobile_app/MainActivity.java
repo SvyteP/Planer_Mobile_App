@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mRefDB = FirebaseDatabase.getInstance().getReference();//Запись адреcа БД
+
     }
 
     public void toRegistration(View reg){

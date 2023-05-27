@@ -1,15 +1,21 @@
 package com.example.planer_mobile_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +39,42 @@ public class Listactivity extends AppCompatActivity {
         init();
         getDataFromBD();
 
+
+        ListView lv = findViewById(R.id.listView);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String LOG_TAG="test";
+                // Получаем выбранный элемент по позиции
+                String selectedItem = (String) adapterView.getItemAtPosition(i);
+
+//                Log.d(LOG_TAG, "itemSelect: position = , id = "+i);
+               // createOneButtonAlertDialog("Нажат элемент:"+i,selectedItem);
+
+            }
+        });
+
+
+    }
+    private void createOneButtonAlertDialog(String title, String content) {
+        // объект Builder для создания диалогового окна
+        AlertDialog.Builder builder = new AlertDialog.Builder(Listactivity.this);
+        // добавляем различные компоненты в диалоговое окно
+        builder.setTitle(title);
+        builder.setMessage(content);
+        // устанавливаем кнопку, которая отвечает за позитивный ответ
+        builder.setPositiveButton("OK",
+                // устанавливаем слушатель
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // по нажатию создаем всплывающее окно с типом нажатой конпки
+                        showMes("Нажали Ок");
+                    }
+                });
+        // объект Builder создал диалоговое окно и оно готово появиться на экране
+        // вызываем этот метод, чтобы показать AlertDialog на экране пользователя
+        builder.show();
     }
     public void toSetting(View reg){
         Intent toReg = new Intent(Listactivity.this, Registration.class);
@@ -89,6 +131,9 @@ public class Listactivity extends AppCompatActivity {
             }
         };
         mRefDB.addValueEventListener(vListener);
+    }
+    private void showMes (String message){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 
 
