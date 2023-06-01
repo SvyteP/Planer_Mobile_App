@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/downPanel"
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="390dp"
+            android:layout_height="79dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:contentDescription="Notes"
+            android:onClick="toBack"
+            android:text="Назад"
+            tools:ignore="DuplicateIds" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listCompl"
+        android:layout_width="409dp"
+        android:layout_height="632dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/downPanel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

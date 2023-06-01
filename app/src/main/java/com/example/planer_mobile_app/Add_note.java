@@ -18,6 +18,8 @@ import android.widget.Toast.Callback;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class Add_note extends AppCompatActivity {
     private DatabaseReference mRefDB;//Переменная для адреса БД
     @Override
@@ -25,7 +27,8 @@ public class Add_note extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
         String group_Notes = "Notes";
-        mRefDB = FirebaseDatabase.getInstance().getReference(group_Notes);//Запись адреcа БД
+        String group_Active = "Active";
+        mRefDB = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Active);//Запись адреcа БД
 
 
         Button btnAddNote = (Button) findViewById(R.id.btnCreateNote);
@@ -36,13 +39,14 @@ public class Add_note extends AppCompatActivity {
         btnAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id=mRefDB.getKey();
+
                 String title = edTitle.getText().toString();
                 String note = edNote.getText().toString();
 
 
+
                 if(!TextUtils.isEmpty(title) && !TextUtils.isEmpty(note)){
-                    ListNotes newNote = new ListNotes(id,title,note);
+                    ListNotes newNote = new ListNotes(title,note);
                     mRefDB.push().setValue(newNote);
                     Toast.makeText(Add_note.this, "Новая задача создана!", Toast.LENGTH_SHORT).show();
                 }
