@@ -50,6 +50,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.example.planer_mobile_app.Del_note" />
+        <activity android:name="com.example.planer_mobile_app.EditNote" />
 
 
     </application>

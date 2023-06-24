@@ -110,6 +110,11 @@ public class Listactivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
+                Intent toReg = new Intent(Listactivity.this, EditNote.class);
+                toReg.putExtra("title", title_note);
+                toReg.putExtra("content", content);
+                startActivity(toReg);
+
             }
         });
         builder.setNeutralButton("Выполнено", new DialogInterface.OnClickListener() {
