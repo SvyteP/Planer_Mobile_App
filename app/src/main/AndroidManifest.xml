@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Planer_Mobile_App"
         tools:targetApi="31">
         <activity
+            android:name=".friendlist"
+            android:exported="false" />
+        <activity
 
             android:name=".Regnewaccount"
             android:exported="true" />
@@ -29,6 +32,7 @@
         <activity
             android:label="@string/All_tasks"
             android:name=".Listactivity"
+
             android:exported="true">
 
         </activity>
@@ -48,6 +52,7 @@
         </activity>
         <activity android:name="com.example.planer_mobile_app.Del_note" />
         <activity android:name="com.example.planer_mobile_app.EditNote" />
+
 
 
     </application>

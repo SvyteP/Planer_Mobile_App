@@ -143,6 +143,7 @@ public class Listactivity extends AppCompatActivity {
         startActivity(toReg);
     }
 
+
    /* public void toFriends(View reg){
         Intent toReg = new Intent(Listactivity.this, ReadDataBase.class);
         startActivity(toReg);
@@ -198,6 +199,7 @@ public class Listactivity extends AppCompatActivity {
     private void showMes (String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
+
 
 
 }
