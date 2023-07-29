@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Planer_Mobile_App</string>
+    <string name="All_tasks">Список задач: </string>
+    <string name="Completed_tasks">Выполненные задачи: </string>
+
 </resources>

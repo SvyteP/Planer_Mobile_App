@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+
         android:supportsRtl="true"
         android:theme="@style/Theme.Planer_Mobile_App"
         tools:targetApi="31">
@@ -15,8 +15,10 @@
             android:name=".friendlist"
             android:exported="false" />
         <activity
+
             android:name=".Regnewaccount"
             android:exported="true" />
+
         <activity
             android:name=".Registration"
             android:exported="true">
@@ -25,13 +27,34 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
+            android:label="@string/All_tasks"
             android:name=".Listactivity"
-            android:exported="true"></activity>
+
+            android:exported="true">
+
+        </activity>
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:label="@string/All_tasks"
+            android:name=".Add_note"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:label="@string/Completed_tasks"
+            android:name=".Completed_note"
+            android:exported="true">
+
+        </activity>
+        <activity android:name="com.example.planer_mobile_app.Del_note" />
+        <activity android:name="com.example.planer_mobile_app.EditNote" />
+
+
+
     </application>
 
 </manifest>

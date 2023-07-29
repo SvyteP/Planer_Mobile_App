@@ -1,9 +1,11 @@
 package com.example.planer_mobile_app;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,9 +13,16 @@ import android.widget.EdgeEffect;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class Regnewaccount extends AppCompatActivity {
     EditText reg_email, reg_pass, reg_pass_repeat, reg_name;
-
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener mAuthListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +31,20 @@ public class Regnewaccount extends AppCompatActivity {
         reg_name = findViewById(R.id.reg_name);
         reg_pass = findViewById(R.id.reg_pass);
         reg_pass_repeat = findViewById(R.id.reg_pass_repeat);
-
-
-
+        mAuth = FirebaseAuth.getInstance();//инециализациия ссылки на пользователя
+        //слушатель входа пользователя
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user != null){
+                    //Пользователь зашел
+                }
+                else{
+                    //Пользователь вышел
+                }
+            }
+        };
 
 
         Button reg = findViewById(R.id.reg);
@@ -35,6 +55,8 @@ public class Regnewaccount extends AppCompatActivity {
                 if(check.isChecked()) {
 
                     if (reg_pass.getText().toString().equals(reg_pass_repeat.getText().toString())) {
+
+                        regNewAcc(reg_email.getText().toString(),reg_pass.getText().toString());//регистрация новго аккаунта
                         Intent toReg = new Intent(Regnewaccount.this, Registration.class);
                         startActivity(toReg);
                     }
@@ -57,4 +79,18 @@ public class Regnewaccount extends AppCompatActivity {
             }
         });
     }
+    public void regNewAcc(String email,String pass){
+        mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d("regNewAcc","Ready");
+                }
+                else{
+                    Log.e("regNewAcc","Error");
+                }
+            }
+        });
+    }
+
 }

@@ -2,131 +2,94 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".Listactivity">
 
     <RelativeLayout
+        android:id="@+id/downPanel"
         android:layout_width="match_parent"
-        android:layout_height="90sp"
-        android:layout_marginStart="0sp"
-        android:layout_marginTop="672sp">
+        android:layout_height="98dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-1dp"
+        android:background="#000000">
 
         <ImageView
-            android:id="@+id/btn_friends"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:id="@+id/btnBack"
+            android:layout_width="88dp"
+            android:layout_height="43dp"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="0sp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="9dp"
             android:layout_marginEnd="43dp"
-            android:layout_toStartOf="@+id/btn_activity"
+            android:layout_marginBottom="7dp"
+            android:layout_toStartOf="@+id/btn_setting"
+            android:layout_toEndOf="@+id/btn_friends"
+
             android:clickable="true"
-            android:contentDescription="friends"
-            android:onClick="toFriends"
-            app:srcCompat="@drawable/icon_friends" />
+            android:contentDescription="Notes"
+            android:onClick="AddNote"
+            android:text="+"
+            app:srcCompat="@drawable/icon_addnote"
+            tools:ignore="DuplicateIds" />
 
         <ImageView
             android:id="@+id/btn_setting"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
+            android:layout_width="81dp"
+            android:layout_height="70dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="43dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="12dp"
             android:clickable="true"
             android:contentDescription="setting"
+
             android:onClick="toSetting"
-            app:srcCompat="@drawable/icon_setting" />
+            app:srcCompat="@drawable/icon_complet" />
 
         <ImageView
-            android:id="@+id/btn_activity"
-            android:layout_width="80sp"
-            android:layout_height="80sp"
-            android:layout_marginEnd="43dp"
-            android:layout_toStartOf="@+id/btn_setting"
+            android:id="@+id/btn_friends"
+            android:layout_width="72dp"
+            android:layout_height="64dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="17dp"
+            android:background="#00FFFFFF"
             android:clickable="true"
-            android:contentDescription="Activity"
-            android:onClick="toActivity"
-            app:srcCompat="@drawable/icon_activity" />
-    </RelativeLayout>
+            android:contentDescription="friends"
+            android:onClick="toFriends"
+            app:srcCompat="@drawable/icon_profile" />
 
-    <RelativeLayout
-        android:id="@+id/upper_bg"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:background="@color/teal_700"
-        android:text="Задача"
-        android:textColor="@color/black">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Задача"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="350dp"
-            android:text="+"
-            tools:ignore="DuplicateIds" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:layout_below="@+id/upper_bg"
-        android:background="#673AB7"
-        android:backgroundTint="#00BCD4"
-        android:text="Полная задача"
-        android:textColor="@color/black">
+        android:layout_height="640dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-3dp"
+        android:layout_marginEnd="0dp">
 
-        <TextView
+
+        <ListView
+            android:id="@+id/listView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Полная задача"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="65sp"
-            android:layout_height="48sp"
+            android:layout_height="639dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="350dp"
-            android:layout_marginTop="107dp"
-            android:layout_marginEnd="13dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:text=">"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="65sp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="350dp"
-            android:layout_marginTop="59dp"
-            android:layout_marginEnd="11dp"
-            android:text="Выделить"
-            android:textSize="3sp" />
-
-        <Button
-            android:layout_width="65sp"
-            android:layout_height="48sp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="350dp"
-            android:layout_marginTop="11dp"
-            android:layout_marginEnd="11dp"
-            android:text="удалить"
-            android:textSize="3sp" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="0dp"
+            />
 
     </RelativeLayout>
 
