@@ -87,6 +87,7 @@ public class Regnewaccount extends AppCompatActivity {
                     Log.d("regNewAcc","Ready");
                 }
                 else{
+                    Toast.makeText(Regnewaccount.this, "Неверный логин или длина пароля менее 6 символов", Toast.LENGTH_SHORT).show();
                     Log.e("regNewAcc","Error");
                 }
             }
