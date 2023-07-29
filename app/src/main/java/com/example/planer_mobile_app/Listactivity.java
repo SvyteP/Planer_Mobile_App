@@ -155,7 +155,10 @@ public class Listactivity extends AppCompatActivity {
     private void init(){
         listView = findViewById(R.id.listView);
         listData = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,listData);
+
+        adapter = new ArrayAdapter<>(this,R.layout.list_txt,R.id.list_content, listData);
+
+
         listView.setAdapter(adapter);
         mRefDB_Active = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Active);
         mRefDB_Compl = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Compl);

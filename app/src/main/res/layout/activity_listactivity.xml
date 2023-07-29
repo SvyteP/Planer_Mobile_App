@@ -76,6 +76,7 @@
         android:layout_marginTop="-3dp"
         android:layout_marginEnd="0dp">
 
+
         <ListView
             android:id="@+id/listView"
             android:layout_width="wrap_content"
@@ -87,7 +88,8 @@
             android:layout_marginStart="0dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="-1dp"
-            android:layout_marginBottom="0dp" />
+            android:layout_marginBottom="0dp"
+            />
 
     </RelativeLayout>
 
