@@ -31,7 +31,7 @@ public class Registration extends AppCompatActivity {
         login = findViewById(R.id.login);
         password= findViewById(R.id.password);
         mAuth = FirebaseAuth.getInstance();
-        
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -53,9 +53,13 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
                     Log.d("signIn", "Ready");
+                    Intent toHome = new Intent(Registration.this, Listactivity.class);
+                    startActivity(toHome);
                 }
                 else{
+                    Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
                     Log.e("signIn", "Error");
                 }
             }
@@ -66,15 +70,7 @@ public class Registration extends AppCompatActivity {
         startActivity(toRegnew);
     }
     public void toStart(View view) {
-
-        if (login.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-            Intent toHome = new Intent(Registration.this, Listactivity.class);
-            startActivity(toHome);
-        }
-        else{
-            Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
-        }
-
+        signIn(login.getText().toString(),password.getText().toString());
     }
 
 

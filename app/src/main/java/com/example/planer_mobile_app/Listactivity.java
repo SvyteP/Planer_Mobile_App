@@ -53,6 +53,7 @@ public class Listactivity extends AppCompatActivity {
         getDataFromBD();
         ListView lv = findViewById(R.id.listView);
         delNote(lv);
+       // setContentView(R.layout.activity_profile);
 
     }
 

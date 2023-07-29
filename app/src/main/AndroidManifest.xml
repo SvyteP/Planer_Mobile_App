@@ -15,21 +15,22 @@
 
             android:name=".Regnewaccount"
             android:exported="true" />
+
         <activity
             android:name=".Registration"
-            android:exported="true">
-
-
-        </activity>
-        <activity
-            android:label="@string/All_tasks"
-            android:name=".Listactivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:label="@string/All_tasks"
+            android:name=".Listactivity"
+            android:exported="true">
+
         </activity>
 
         <activity
@@ -43,11 +44,7 @@
             android:label="@string/Completed_tasks"
             android:name=".Completed_note"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.planer_mobile_app.Del_note" />
         <activity android:name="com.example.planer_mobile_app.EditNote" />
