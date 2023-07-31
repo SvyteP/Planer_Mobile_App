@@ -44,13 +44,14 @@ public class Add_note extends AppCompatActivity {
                     ListNotes newNote = new ListNotes(title,note);
                     mRefDB.push().setValue(newNote);
                     Toast.makeText(Add_note.this, "Новая задача создана!", Toast.LENGTH_SHORT).show();
+                    Intent toReg = new Intent(Add_note.this, Listactivity.class);
+                    startActivity(toReg);
                 }
                 else
                 {
                     Toast.makeText(Add_note.this, "Имеются пустые поля!", Toast.LENGTH_SHORT).show();
                 }
-                Intent toReg = new Intent(Add_note.this, Listactivity.class);
-                startActivity(toReg);
+
             }
         });
 

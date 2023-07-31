@@ -72,7 +72,7 @@ public class Completed_note  extends AppCompatActivity {
     private void init(){
         listCompl = findViewById(R.id.listCompl);
         listData = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,listData);
+        adapter = new ArrayAdapter<>(this,R.layout.list_txt,R.id.list_content,listData);
         listCompl.setAdapter(adapter);
         mRefDB_Compl = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Compl);
     }
