@@ -20,9 +20,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Regnewaccount extends AppCompatActivity {
+
     EditText reg_email, reg_pass, reg_pass_repeat, reg_name;
     FirebaseAuth mAuth;
+    String email,login,company,pass,rep_pass;
     FirebaseAuth.AuthStateListener mAuthListener;
+    Users user;
+    Add_individ_kat add_individ_kat =  new Add_individ_kat();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +35,12 @@ public class Regnewaccount extends AppCompatActivity {
         reg_name = findViewById(R.id.reg_name);
         reg_pass = findViewById(R.id.reg_pass);
         reg_pass_repeat = findViewById(R.id.reg_pass_repeat);
+
+
+
+
         mAuth = FirebaseAuth.getInstance();//инециализациия ссылки на пользователя
+
         //слушатель входа пользователя
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -52,11 +61,22 @@ public class Regnewaccount extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CheckBox check = findViewById(R.id.checkBox);
+                email = reg_email.getText().toString();
+                login = reg_name.getText().toString();
+                pass = reg_pass.getText().toString();
+                rep_pass =reg_pass_repeat.getText().toString();
+
                 if(check.isChecked()) {
 
-                    if (reg_pass.getText().toString().equals(reg_pass_repeat.getText().toString())) {
+                    if (pass.equals(rep_pass)) {
 
-                        regNewAcc(reg_email.getText().toString(),reg_pass.getText().toString());//регистрация новго аккаунта
+                        regNewAcc(email,pass);//регистрация новго аккаунта
+                        user = new Users(email,login,mAuth.getUid());
+
+                        add_individ_kat.createKatUsers(mAuth.getUid(),user);
+
+
+
                         Intent toReg = new Intent(Regnewaccount.this, Registration.class);
                         startActivity(toReg);
                     }

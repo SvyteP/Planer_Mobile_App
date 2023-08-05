@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseError;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,15 +36,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Listactivity extends AppCompatActivity {
+    private final  String group_users = "Users";
+    private final  String group_notes = "Notes";
+    private final  String group_active = "Active";
+    private final  String group_complete = "Complete";
     private DatabaseReference mRefDB_Active;//Переменная для адреса БД
     private DatabaseReference mRefDB_Compl;//Переменная для адреса БД
     private Del_note del_note = new Del_note();
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private List<String> listData;
-    String group_Notes = "Notes";
-    String group_Active = "Active";
-    String group_Compl = "Completed";
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,8 +166,10 @@ public class Listactivity extends AppCompatActivity {
 
 
         listView.setAdapter(adapter);
-        mRefDB_Active = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Active);
-        mRefDB_Compl = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Compl);
+        mAuth = FirebaseAuth.getInstance();
+        mRefDB_Active = FirebaseDatabase.getInstance().getReference(group_users).child(mAuth.getUid()).child(group_notes).child(group_active);
+        mRefDB_Compl = FirebaseDatabase.getInstance().getReference(group_users).child(mAuth.getUid()).child(group_notes).child(group_complete);
+
 
     }
     public void getDataFromBD()

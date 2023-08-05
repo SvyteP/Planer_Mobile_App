@@ -12,18 +12,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Add_note extends AppCompatActivity {
+
+    private final  String group_users = "Users";
+    private final  String group_notes = "Notes";
+    private final  String group_active = "Active";
+
     private DatabaseReference mRefDB;//Переменная для адреса БД
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_note);
-        String group_Notes = "Notes";
-        String group_Active = "Active";
-        mRefDB = FirebaseDatabase.getInstance().getReference(group_Notes).child(group_Active);//Запись адреcа БД
+        mAuth = FirebaseAuth.getInstance();
+        mRefDB = FirebaseDatabase.getInstance().getReference(group_users).child(mAuth.getUid()).child(group_notes).child(group_active);//Запись адреcа БД
+
+
 
 
         Button btnAddNote = (Button) findViewById(R.id.btnCreateNote);
