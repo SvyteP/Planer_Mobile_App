@@ -49,39 +49,34 @@ public class Registration extends AppCompatActivity {
 
 
     public void signIn(String login,String password){
+        try {
+            mAuth.signInWithEmailAndPassword(login,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
 
-
-            if(login.isEmpty() == false || password.isEmpty() == false) {
-
-                mAuth.signInWithEmailAndPassword(login, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-
-                            Log.d("signIn", "Ready");
-                            Intent toHome = new Intent(Registration.this, Listactivity.class);
-                            startActivity(toHome);
-                        } else {
-                            Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
-                            Log.e("signIn", "Error");
-                        }
+                        Log.d("signIn", "Ready");
+                        Intent toHome = new Intent(Registration.this, Listactivity.class);
+                        startActivity(toHome);
                     }
-                });
-            }
-            else
-            {
-                Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
-                Log.e("signIn", "Error");
-            }
-    }
+                    else{
+                        Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
+                        Log.e("signIn", "Error");
+                    }
+                }
+            });
+        }
+        catch (IllegalArgumentException e){
+            Log.e("signIn","Error");
+            Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
+        }
 
+    }
     public void toRegnewaccount(View regnew) {
         Intent toRegnew = new Intent(Registration.this, Regnewaccount.class);
         startActivity(toRegnew);
     }
     public void toStart(View view) {
-        Toast.makeText(Registration.this, "Неверный логин или пароль", Toast.LENGTH_SHORT).show();
-
         signIn(login.getText().toString(),password.getText().toString());
     }
 

@@ -71,9 +71,12 @@ public class Regnewaccount extends AppCompatActivity {
                     if (pass.equals(rep_pass)) {
 
                         regNewAcc(email,pass);//регистрация новго аккаунта
+
+                        
                         user = new Users(email,login,mAuth.getUid());
 
                         add_individ_kat.createKatUsers(mAuth.getUid(),user);
+
 
 
 
@@ -105,6 +108,7 @@ public class Regnewaccount extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Log.d("regNewAcc","Ready");
+
                 }
                 else{
                     Toast.makeText(Regnewaccount.this, "Неверный логин или длина пароля менее 6 символов", Toast.LENGTH_SHORT).show();
